@@ -20,11 +20,11 @@ resource "aws_subnet" "North_Virginia-Public-Subnet-1" {
   }
 }
 
-# North_Virginia Public Subnet 2
-resource "aws_subnet" "North_Virginia-Public-Subnet-2" {
+# North_Virginia Private Subnet 1
+resource "aws_subnet" "North_Virginia-Private-Subnet-1" {
   provider = aws.North_Virginia
   vpc_id     = aws_vpc.North_Virginia-VPC.id
-  cidr_block = var.vpc-public-subnet-2
+  cidr_block = var.vpc-private-subnet-1
   map_public_ip_on_launch = true
 
   tags = {
@@ -32,11 +32,11 @@ resource "aws_subnet" "North_Virginia-Public-Subnet-2" {
   }
 }
 
-# North_Virginia Private Subnet 1
-resource "aws_subnet" "North_Virginia-Private-Subnet-1" {
+# North_Virginia Private Subnet 2
+resource "aws_subnet" "North_Virginia-Private-Subnet-2" {
   provider = aws.North_Virginia
   vpc_id     = aws_vpc.North_Virginia-VPC.id
-  cidr_block = var.vpc-private-subnet-1
+  cidr_block = var.vpc-private-subnet-2
 
   tags = {
     Name = "${var.name-prefix}-Private-Subnet1"
@@ -72,22 +72,22 @@ resource "aws_route" "North_Virginia-Route" {
 }
 
 # North_Virginia Route Table Association for Public Subnet 1
-resource "aws_route_table_association" "Oregon-RTA-Public-Subnet-1" {
+resource "aws_route_table_association" "North_Virginia-RTA-Public-Subnet-1" {
   provider = aws.North_Virginia
   subnet_id      = aws_subnet.North_Virginia-Public-Subnet-1.id
   route_table_id = aws_route_table.North_Virginia-RT.id
 } 
 
-# North_Virginia Route Table Association for Public Subnet 2
-resource "aws_route_table_association" "Oregon-RTA-Public-Subnet-2" {
+# North_Virginia Route Table Association for Private Subnet 1
+resource "aws_route_table_association" "North_Virginia-RTA-Private-Subnet-1" {
   provider = aws.North_Virginia
-  subnet_id      = aws_subnet.North_Virginia-Public-Subnet-2.id
+  subnet_id      = aws_subnet.North_Virginia-Private-Subnet-1.id
   route_table_id = aws_route_table.North_Virginia-RT.id
 }
 
-# # North_Virginia Route Table Association for Private Subnet 1
-# resource "aws_route_table_association" "North_Virginia-Private-Subnet-1" {
-#   provider = aws.North_Virginia
-#   subnet_id      = aws_subnet.Oregon-Subnet-2.id
-#   route_table_id = aws_route_table.Oregon-RT.id
-# }
+# North_Virginia Route Table Association for Private Subnet 2
+resource "aws_route_table_association" "North_Virginia-RTA-Private-Subnet-2" {
+  provider = aws.North_Virginia
+  subnet_id      = aws_subnet.North_Virginia-Private-Subnet-2.id
+  route_table_id = aws_route_table.North_Virginia-RT.id
+}
