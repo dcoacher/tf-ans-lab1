@@ -16,32 +16,44 @@ variable "aws_session_token" {
   default = ""
 }
 
-variable "ami-region" {
+variable "name-prefix" {
+  description = "Name Prefix"
+  type = string
+  default = "North_Virginia"
+}
+
+variable "ami" {
   description = "AMI For Region North_Virginia"
   type = string
-  default = ""
+  default = "ami-0bbdd8c17ed981ef9" # Ubuntu Server 22.04 LTS (HVM), SSD Volume Type
+}
+
+variable "vm-size" {
+  description = "VM Size"
+  type = string
+  default = "t3.medium"
 }
 
 variable "vpc-cidr" {
-  description = "VPC1 Cidr"
+  description = "VPC Cidr"
   type = string
-  default = ""
+  default = "10.10.0.0/16"
 }
 
 variable "vpc-public-subnet-1" {
   description = "VPC Public Subnet 1"
   type = string
-  default = ""
+  default = "10.10.1.0/24"
 }
 
 variable "vpc-public-subnet-2" {
   description = "VPC Public Subnet 2"
   type = string
-  default = ""
+  default = "10.10.2.0/24"
 }
 
 variable "vpc-private-subnet-1" {
   description = "VPC Private Subnet 1"
   type = string
-  default = ""
+  default = "10.10.3.0/24"
 }
