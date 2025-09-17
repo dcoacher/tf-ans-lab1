@@ -1,7 +1,7 @@
 # tf-ans-lab1 [Work In Progress]
 Make your IT Asset Management process simple and controlled. This web-based, runs on Apache complete application for tracking computer equipment, software licenses, and accessories in the organization, will make it happen.
 
-<img src="https://img.freepik.com/premium-psd/3d-laptop-program-code-development-web-coding-concept-coding-screen-3d-rendering-3d-rendering-laptop-3d-render-illustration_561158-3087.jpg" width="350" height="350" />
+<img src="https://static.vecteezy.com/system/resources/thumbnails/019/153/003/small_2x/3d-minimal-programming-icon-coding-screen-web-development-concept-laptop-with-a-coding-screen-and-a-coding-icon-3d-illustration-png.png" width="350" height="350" />
 
 ## New Version (Major Update)
 Using Terraform for IaaC in AWS enrivonment including ELB with 2 EC2 Linux Ubuntu Machines and 1 EC2 Control Machine running Ansible for Managing.
