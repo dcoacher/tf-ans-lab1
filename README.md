@@ -8,16 +8,31 @@ Take a look at the [Previous Version](https://github.com/dcoacher/it-asset-manag
 In this version Terraform used for IaaC in AWS enrivonment including ELB with 2 EC2 Linux Ubuntu Machines and 1 EC2 Control Machine running Ansible for Managing.
 
 ## Data Structure
-Content
+- :file_folder: *`ansible`* directory contains Ansible EC2 machine deployment script
+  - :page_facing_up: *`user-data-ansible.sh`* deployment script
+- :file_folder: *`terraform`* directory contains IaaC configuration for AWS
+  - :page_facing_up: *`EC2.tf`* configuration file for EC2 Machines
+  - :page_facing_up: *`elb.tf`* configuration file for ELB Setting
+  - :page_facing_up: *`keypair.tf`* configuration file for KeyPair Creation
+  - :page_facing_up: *`network.tf`* configuration file for AWS Network Structure
+  - :page_facing_up: *`outputs.tf`* configuration file for Outputs Data Handling
+  - :page_facing_up: *`providers.tf`* configuration file for Terraform Providers
+  - :page_facing_up: *`sg.tf`* configuration file for Security Groups
+  - :page_facing_up: *`variables.tf`* configuration file for Terraform Variables Data
 
 ## Deployment and Implementation
-ansible-playbook playbook.yaml
-apt install -y python3 python3-venv python3-pip python3-flask
-git clone https://github.com/dcoacher/it-asset-management
-cd it-asset-management/website/
-flask --app app run --host=0.0.0.0 --port=5000
-
-task: check elb/alb
+1. Start AWS Academy Sandbox and Provide Lab Credentials to variables.tf file variables:
+   - aws_access_key_id
+   - aws_secret_access_key
+   - aws_session_token
+2. Run Terraform Commands in Order to Build Infrastructure Environment in AWS:
+   - terraform init
+   - terraform apply -auto-approve
+3. Connect via SSH or using AWS GUI to the Managing Ansible EC2 Host, located in Public Subnet.
+4. Run the playbook on managed web application EC2 Machines in Private Subnets in order to perform relevant installation and run the webserver:
+   - ansible-playbook playbook.yaml
+5. Verify Access to the Webserver Using ALB DNS Name from Terraform Outputs or from AWS GUI.
+6. *`Optional:`* Verify Health Status of the EC2 Machines in Load Balancer Section via AWS GUI.
 
 ## License
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/dcoacher/tf-ans-lab1/blob/main/LICENSE)
