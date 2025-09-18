@@ -31,17 +31,16 @@ In this version Terraform used for IaaC in AWS enrivonment including ELB with 2 
 
 ## Deployment and Implementation
 1. Start AWS Academy Sandbox and Provide Lab Credentials to variables.tf file variables:
-   - aws_access_key_id
-   - aws_secret_access_key
-   - aws_session_token
+   - `aws_access_key_id`
+   - `aws_secret_access_key`
+   - `aws_session_token`
 2. Run Terraform Commands in Order to Build Infrastructure Environment in AWS:
-   - terraform init
-   - terraform apply -auto-approve
+   - `terraform init`
+   - `terraform apply -auto-approve`
 3. Connect via SSH or using AWS GUI to the Managing Ansible EC2 Host, located in Public Subnet.
-4. Run the playbook on managed web application EC2 Machines in Private Subnets in order to perform relevant installation and run the webserver:
-   - ansible-playbook playbook.yaml
+4. Run the playbook on managed web application EC2 Machines in Private Subnets in order to perform relevant installation and start the Webserver: `ansible-playbook playbook.yaml`
 5. Verify Access to the Webserver Using ALB DNS Name from Terraform Outputs or from AWS GUI.
-6. *`Optional:`* Verify Health Status of the EC2 Machines in Load Balancer Section via AWS GUI.
+6. *Optional:* Verify Health Status of the EC2 Machines in Load Balancer Section via AWS GUI.
 
 ## License
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/dcoacher/tf-ans-lab1/blob/main/LICENSE)
