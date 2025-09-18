@@ -30,17 +30,21 @@ In this version Terraform used for IaaC in AWS enrivonment including ALB with 2 
 - Easy Webapp Environment Deploying via Ansible Control Host by Running Automated Playbook
 
 ## Deployment and Implementation
-1. Start AWS Academy Sandbox and Provide Lab Credentials to variables.tf file variables:
-   - `aws_access_key_id`
-   - `aws_secret_access_key`
-   - `aws_session_token`
+1. Start AWS Academy Sandbox and Load Lab Credentials via Terminal in VS Code:
+   - `set AWS_ACCESS_KEY_ID=<value>` to export AWS access key value
+   - `set AWS_SECRET_ACCESS_KEY=<value>` to export AWS secret key value
+   - `AWS_SESSION_TOKEN=<value>` to export AWS Session token value
+   - `set AWS_REGION=us-east-1` to set up the default region value
+   - `aws sts get-caller-identity` to verify workability
 2. Run Terraform Commands in Order to Build Infrastructure Environment in AWS:
    - `terraform init`
    - `terraform apply -auto-approve`
-3. Connect via SSH or using AWS GUI to the Managing Ansible EC2 Host, located in Public Subnet.
-4. Run the playbook on managed web application EC2 Machines in Private Subnets in order to perform relevant installation and start the Webserver: `ansible-playbook playbook.yaml`
+3. Remove Comment Lines from 19 to 54 in `keypair.tf` file and run `terraform apply -auto-approve` command again.
+4. Connect via SSH or using AWS GUI to the Managing Ansible EC2 Host, located in Public Subnet.
+5. Run the playbook on managed web application EC2 Machines in Private Subnets in order to perform relevant installation and start the Webserver: `ansible-playbook playbook.yaml`
 5. Verify Access to the Webserver Using ALB DNS Name from Terraform Outputs or from AWS GUI.
 6. *Optional:* Verify Health Status of the EC2 Machines in Load Balancer Section via AWS GUI.
+7. Backend Steps
 
 # TBD
 - Terraform Tfstate File Storing in S3 Bucket and DynamoDB
