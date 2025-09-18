@@ -5,14 +5,14 @@ Make your IT Asset Management process simple and controlled. This web-based, run
 
 ## New Version (Major Update)
 Take a look at the [Previous Version](https://github.com/dcoacher/it-asset-management).<br><br>
-In this version Terraform used for IaaC in AWS enrivonment including ELB with 2 EC2 Linux Ubuntu Machines and 1 EC2 Control Machine running Ansible for Managing.
+In this version Terraform used for IaaC in AWS enrivonment including ALB with 2 EC2 Linux Ubuntu Instances and 1 EC2 Control Machine running Ansible for Managing.
 
 ## Data Structure
 - :file_folder: *`ansible`* directory contains Ansible EC2 machine deployment script
   - :page_facing_up: *`user-data-ansible.sh`* deployment script
 - :file_folder: *`terraform`* directory contains IaaC configuration for AWS
   - :page_facing_up: *`EC2.tf`* configuration file for EC2 Machines
-  - :page_facing_up: *`elb.tf`* configuration file for ELB Setting
+  - :page_facing_up: *`alb.tf`* configuration file for ELB Setting
   - :page_facing_up: *`keypair.tf`* configuration file for KeyPair Creation
   - :page_facing_up: *`network.tf`* configuration file for AWS Network Structure
   - :page_facing_up: *`outputs.tf`* configuration file for Outputs Data Handling
@@ -21,7 +21,7 @@ In this version Terraform used for IaaC in AWS enrivonment including ELB with 2 
   - :page_facing_up: *`variables.tf`* configuration file for Terraform Variables Data
  
 ## Key Features
-- Load Balancer Support for Traffic Handling
+- Load Balancer Support for Traffic Handling (ALB)
 - Network Hardening on Application Level by Allowing Only Relevant Traffic (Controlled via SG)
 - Network Hardening on Infrastructure Level by Locating EC2 Webapp Instances in Private Subnets
 - IaaC Done in Terraform for Easy Environment Deployment in AWS
