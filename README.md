@@ -42,6 +42,9 @@ In this version Terraform used for IaaC in AWS enrivonment including ALB with 2 
 5. Verify Access to the Webserver Using ALB DNS Name from Terraform Outputs or from AWS GUI.
 6. *Optional:* Verify Health Status of the EC2 Machines in Load Balancer Section via AWS GUI.
 
+# TBD
+- Terraform Tfstate File Storing in S3 Bucket and DynamoDB
+
 ## License
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/dcoacher/tf-ans-lab1/blob/main/LICENSE)
 
