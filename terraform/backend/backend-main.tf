@@ -11,7 +11,7 @@ provider "aws" {
 
 # ---- S3 bucket for tfstate ----
 resource "aws_s3_bucket" "tfstate" {
-  bucket        = "tf-ans-lab1-s3-bucket"  # MUST be globally unique
+  bucket        = "tf-ans-lab1-s3-bucket-2"  # MUST be globally unique
   force_destroy = true
   tags = { Name = "tfstate" }
 }
@@ -47,3 +47,4 @@ resource "aws_dynamodb_table" "locks" {
   }
   tags = { Name = "tfstate-locks" }
 }
+
