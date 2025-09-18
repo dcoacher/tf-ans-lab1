@@ -19,6 +19,15 @@ In this version Terraform used for IaaC in AWS enrivonment including ELB with 2 
   - :page_facing_up: *`providers.tf`* configuration file for Terraform Providers
   - :page_facing_up: *`sg.tf`* configuration file for Security Groups
   - :page_facing_up: *`variables.tf`* configuration file for Terraform Variables Data
+ 
+## Key Features
+- Load Balancer Support for Traffic Handling
+- Network Hardening on Application Level by Allowing Only Relevant Traffic (Controlled via SG)
+- Network Hardening on Infrastructure Level by Locating EC2 Webapp Instances in Private Subnets
+- IaaC Done in Terraform for Easy Environment Deployment in AWS
+- EC2 Webapp Instances Control by Ansible Control Host
+- Automated Environment Setting by User-Data Script on Ansible Control Host
+- Easy Webapp Environment Deploying via Ansible Control Host by Running Automated Playbook
 
 ## Deployment and Implementation
 1. Start AWS Academy Sandbox and Provide Lab Credentials to variables.tf file variables:
