@@ -18,6 +18,13 @@ resource "aws_key_pair" "North_VirginiaKP" {
 
 # Key Pair Copying from Terraform to Ansible Control VM
 resource "terraform_data" "Key_Pair_Copy" {
+  # Make creation wait for these to exist
+  depends_on = [
+    tls_private_key.KeyPairGeneration,
+    aws_key_pair.North_VirginiaKP,
+    aws_instance.North_Virginia-Public1-VM,
+    local_sensitive_file.PrivateKey,     # keep only if you truly need the on-disk file
+  ]
   # Recreate this resource (and rerun provisioners) whenever the local key changes
   triggers_replace = {
     key_checksum = sha256(file("${path.module}/KP.pem"))
@@ -50,4 +57,5 @@ resource "terraform_data" "Key_Pair_Copy" {
       "chown ubuntu:ubuntu /home/ubuntu/KP.pem"
     ]
   }
+
 }
