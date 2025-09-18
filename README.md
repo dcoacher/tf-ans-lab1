@@ -10,9 +10,12 @@ In this version Terraform used for IaaC in AWS enrivonment including ALB with 2 
 ## Data Structure
 - :file_folder: *`ansible`* directory contains Ansible EC2 machine deployment script
   - :page_facing_up: *`user-data-ansible.sh`* deployment script
+- :file_folder: *`backend`* directory contains backend migration flow to S3 bucket and DynamoDB
+  - :page_facing_up: *`backend-main.tf`* configuration file for tfvars file migration to S3
 - :file_folder: *`terraform`* directory contains IaaC configuration for AWS
   - :page_facing_up: *`EC2.tf`* configuration file for EC2 Machines
   - :page_facing_up: *`alb.tf`* configuration file for ELB Setting
+  - :page_facing_up: *`backend.tf`* additional configuration for tfvars file migration to S3
   - :page_facing_up: *`keypair.tf`* configuration file for KeyPair Creation
   - :page_facing_up: *`network.tf`* configuration file for AWS Network Structure
   - :page_facing_up: *`outputs.tf`* configuration file for Outputs Data Handling
@@ -28,6 +31,7 @@ In this version Terraform used for IaaC in AWS enrivonment including ALB with 2 
 - EC2 Webapp Instances Control by Ansible Control Host
 - Automated Environment Setting by User-Data Script on Ansible Control Host
 - Easy Webapp Environment Deploying via Ansible Control Host by Running Automated Playbook
+- Tfstate Cloud File Storing in S3 Bucket with DynamoDB
 
 ## Deployment and Implementation
 1. Start AWS Academy Sandbox and Load Lab Credentials via Terminal in VS Code:
@@ -39,15 +43,24 @@ In this version Terraform used for IaaC in AWS enrivonment including ALB with 2 
 2. Run Terraform Commands in Order to Build Infrastructure Environment in AWS:
    - `terraform init`
    - `terraform apply -auto-approve`
-3. Remove Comment Lines from 19 to 54 in `keypair.tf` file and run `terraform apply -auto-approve` command again.
+3. Remove Comment Lines from 19 to 54 in `keypair.tf` file and run `terraform apply -auto-approve` command again *(Required for Local KP.pem file copying to Ansible EC2 instance)*.
 4. Connect via SSH or using AWS GUI to the Managing Ansible EC2 Host, located in Public Subnet.
 5. Run the playbook on managed web application EC2 Machines in Private Subnets in order to perform relevant installation and start the Webserver: `ansible-playbook playbook.yaml`
 5. Verify Access to the Webserver Using ALB DNS Name from Terraform Outputs or from AWS GUI.
 6. *Optional:* Verify Health Status of the EC2 Machines in Load Balancer Section via AWS GUI.
-7. Backend Steps
-
-# TBD
-- Terraform Tfstate File Storing in S3 Bucket and DynamoDB
+7. Change Directory to `backend` in Terraform using the command `cd backend`
+8. Run Terraform Commands for S3 Bucket and DynamoDB Creation:
+   - `terraform init`
+   - `terraform apply -auto-approve`
+9. Return to main folder by running `cd ..`
+10. Remove Comment Lines in `backend.tf` file
+11. Run the Next Command in order to Proceed with the Migration Flow:
+  - `terraform init -migrate-state`
+12. Run the Commands in Order to Finish Migration to S3 bucket and DymanoDB tfstate file storing
+  - `terraform init -reconfigure`
+  - `terraform init -migrate-state`
+13. Verify in AWS GUI or in VS Code that the tfstate file is stored in AWS S3 bucket with DynamoDB.<br>
+You can also remove local tfstate file from your Terraform.
 
 ## License
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/dcoacher/tf-ans-lab1/blob/main/LICENSE)
