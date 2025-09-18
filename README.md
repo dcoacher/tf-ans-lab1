@@ -11,7 +11,13 @@ In this version Terraform used for IaaC in AWS enrivonment including ELB with 2 
 Content
 
 ## Deployment and Implementation
-Content
+ansible-playbook playbook.yaml
+apt install -y python3 python3-venv python3-pip python3-flask
+git clone https://github.com/dcoacher/it-asset-management
+cd it-asset-management/website/
+flask --app app run --host=0.0.0.0 --port=5000
+
+task: check elb/alb
 
 ## License
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/dcoacher/tf-ans-lab1/blob/main/LICENSE)
