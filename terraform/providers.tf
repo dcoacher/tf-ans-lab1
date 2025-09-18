@@ -15,7 +15,7 @@ terraform {
   }
 }
 
-# Region (North_Virginia)
+# Region VPC (North_Virginia)
 provider "aws" {
   alias = "North_Virginia"
   region = "us-east-1"

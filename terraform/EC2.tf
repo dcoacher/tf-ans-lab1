@@ -10,7 +10,7 @@ resource "aws_instance" "North_Virginia-Public1-VM" {
   user_data = local.ansible_install_user_data
 
   tags = {
-    Name = "${var.name-prefix}-Ansible-VM"
+    Name = "${var.name-prefix}-Ansible-Control-VM"
   }
 }
 

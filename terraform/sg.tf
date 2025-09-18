@@ -30,7 +30,6 @@ resource "aws_security_group" "ansible_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    # cidr_blocks = [var.ip-address]
     cidr_blocks = ["0.0.0.0/0"]
   }
 

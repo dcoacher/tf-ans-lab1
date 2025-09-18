@@ -14,6 +14,7 @@ output "ALB-DNS-Name" {
     value = aws_lb.North_Virginia-ALB.dns_name
 }
 
+# Output for Key Pair (Deprecated)
 # output "Key-Pair" {
 #   value = file("${path.module}/KP.pem")
 #   sensitive = true

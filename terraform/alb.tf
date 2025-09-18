@@ -1,3 +1,4 @@
+# Classic Load Balancer (ELB) - Deprecated
 # resource "aws_elb" "North_Virginia-ELB" {
 #   provider = aws.North_Virginia
 #   name            = "flask-clb"
@@ -28,7 +29,7 @@
 #   ]
 # }
 
-
+# Load Balancer (ALB)
 resource "aws_lb" "North_Virginia-ALB" {
   provider = aws.North_Virginia
   name               = "it-asset-management"
@@ -41,6 +42,7 @@ resource "aws_lb" "North_Virginia-ALB" {
   ]
 }
 
+# Target Group for ALB
 resource "aws_lb_target_group" "North_Virginia-TG" {
   provider = aws.North_Virginia
   name        = "TG"
@@ -61,6 +63,7 @@ resource "aws_lb_target_group" "North_Virginia-TG" {
   }
 }
 
+# Listener for ALB
 resource "aws_lb_listener" "http" {
   provider = aws.North_Virginia
   load_balancer_arn = aws_lb.North_Virginia-ALB.arn
@@ -73,7 +76,7 @@ resource "aws_lb_listener" "http" {
   }
 }
 
-# Attach instances (or do this via ASG)
+# Attaching Private EC2 Machine From Subnet 1
 resource "aws_lb_target_group_attachment" "attach1" {
   provider = aws.North_Virginia
   target_group_arn = aws_lb_target_group.North_Virginia-TG.arn
@@ -81,6 +84,7 @@ resource "aws_lb_target_group_attachment" "attach1" {
   port             = 5000
 }
 
+# Attaching Private EC2 Machine From Subnet 2
 resource "aws_lb_target_group_attachment" "attach2" {
   provider = aws.North_Virginia
   target_group_arn = aws_lb_target_group.North_Virginia-TG.arn

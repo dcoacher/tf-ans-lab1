@@ -104,7 +104,6 @@ resource "aws_route_table_association" "North_Virginia-RTA-Public-Subnet-2" {
 resource "aws_eip" "North_Virginia-EIP" {
   provider = aws.North_Virginia
   domain = "vpc"
-  # instance = aws_instance.North_Virginia-Public1-VM.id
 }
 
 # North_Virginia NAT Gateway
@@ -127,10 +126,6 @@ resource "aws_route_table" "North_Virginia-Private-RT" {
     # gateway_id = aws_nat_gateway.North_Virginia-NAT.id
     nat_gateway_id = aws_nat_gateway.North_Virginia-NAT.id
   }
-  # route {
-  #   cidr_block     = "0.0.0.0/0"
-  #   gateway_id = aws_internet_gateway.North_Virginia-IGW.id
-  # }
   tags = {
     Name = "${var.name-prefix}-Private-RT"
   }
