@@ -8,7 +8,7 @@ Take a look at the [Previous Version](https://github.com/dcoacher/it-asset-manag
 In this version Terraform used for IaaC in AWS enrivonment including ALB with 2 EC2 Linux Ubuntu Instances and 1 EC2 Control Machine running Ansible for Managing.
 
 ## Before You Start
-Make Sure You Changed/Set the Unique Name for S3 Bucket.
+:bangbang: Make Sure You Changed/Set the Unique Name for S3 Bucket.
 
 ## Data Structure
 - :file_folder: *`ansible`* directory contains Ansible EC2 machine deployment script
