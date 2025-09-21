@@ -57,12 +57,10 @@ In this version Terraform used for IaaC in AWS enrivonment including ALB with 2 
    - `terraform apply -auto-approve`
 9. Return to main folder by running `cd ..`
 10. Remove Comment Lines in `backend.tf` file
-11. Run the Next Command in order to Proceed with the Migration Flow:
-  - `terraform init -migrate-state`
-12. Run the Commands in Order to Finish Migration to S3 bucket and DymanoDB tfstate file storing
+11. Run the Commands in Order to Finish Migration to S3 bucket and DymanoDB tfstate file storing
   - `terraform init -reconfigure`
   - `terraform init -migrate-state`
-13. Verify in AWS GUI or in VS Code that the tfstate file is stored in AWS S3 bucket with DynamoDB.<br>
+12. Verify in AWS GUI or in VS Code that the tfstate file is stored in AWS S3 bucket with DynamoDB.<br>
 You can also remove local tfstate file from your Terraform.
 
 ## License
