@@ -17,7 +17,7 @@ In this version Terraform used for IaaC in AWS enrivonment including ALB with 2 
   - :page_facing_up: *`backend-main.tf`* configuration file for tfvars file migration to S3
 - :file_folder: *`terraform`* directory contains IaaC configuration for AWS
   - :page_facing_up: *`EC2.tf`* configuration file for EC2 Machines
-  - :page_facing_up: *`alb.tf`* configuration file for ELB Setting
+  - :page_facing_up: *`alb.tf`* configuration file for ALB Setting (Load Balancer)
   - :page_facing_up: *`backend.tf`* additional configuration for tfvars file migration to S3
   - :page_facing_up: *`keypair.tf`* configuration file for KeyPair Creation
   - :page_facing_up: *`network.tf`* configuration file for AWS Network Structure
